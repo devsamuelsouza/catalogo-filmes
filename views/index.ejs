@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/logo(alternativa).png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Filmes S+</title>
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="/img/logo(alternativa).png" alt="">
+        <div id="paginas">
+            <a href="/animacao">Animação</a>
+            <a href="/popular">Populares</a>
+            <a href="/lancamento">Lançamentos</a>
+        </div>
+    </header>
+    <main>
+        <% for(let i=1;i < filmes.length; i++) {%>
+            <div class="filmes">
+                <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path%>" alt="">
+                <p>
+                    <%= filmes[i].title%>
+                </p>
+            </div>
+            <% } %>
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+
+</html>
