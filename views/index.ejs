@@ -12,22 +12,37 @@
 <body>
     <header>
         <div id="header-1">
-            <img id="logo" src="/img/logo.png" alt="">
+            <div class="header-item" id="seleciona-tipo">
+                <i id="menu" class="fa-solid fa-bars fa-2xl" style="color: #ffffff;"></i>
+                <div id="itens-selecionar">
+                    <a id="item1selecionar" class="texto-selecionar" href="/sobre">Sobre</a>
+                    <a id="item2selecionar" class="texto-selecionar" href="/popular">+18</a>
+                    <a id="item3selecionar" class="texto-selecionar" href="/animacao">Filmes</a>
+                    <a id="item4selecionar" class="texto-selecionar" href="/popular">Séries</a>
+                    <a id="item5selecionar" class="texto-selecionar" href="/popular">Populares</a>
+                    <a id="item6selecionar" class="texto-selecionar" href="/popular">Lançamentos</a>
+                </div>
+            </div>
+            <img class="header-item" id="logo" src="/img/logo.png" alt="">
 
-            <div id="links-header">
+            <div class="header-item" id="links-header">
                 <a class="texto-header" href="/sobre">Sobre</a>
+                <a class="texto-header" href="/popular">+ 18</a>
                 <a class="texto-header" href="/animacao">Filmes</a>
                 <a class="texto-header" href="/popular">Séries</a>
                 <a class="texto-header" href="/popular">Populares</a>
-                <a class="texto-header" href="/popular">Lançamentos</a>
+                <a class="texto-header" href="/popular">Em Cartaz</a>
             </div>
 
-            <div id="social-header">
-                <img class="social-header" src="/img/social/instagram.png" alt="Instagram">
-                <img class="social-header" src="/img/social/linkedin.png" alt="Linkedin">
-                <img class="social-header" src="/img/social/github.png" alt="Github">
-                <img class="social-header" src="" alt="">
+            <div class="header-item" id="social-header">
+                <a class="social-header" href=""><img class="social-img" src="/img/social/instagram.png"
+                        alt="Instagram"></a>
+                <a class="social-header" href=""><img class="social-img" src="/img/social/linkedin.png"
+                        alt="Linkedin"></a>
+                <a class="social-header" href="https://github.com/devsamuca"><img class="social-img"
+                        src="/img/social/github.png" alt="Github"></a>
             </div>
+
         </div>
 
         <div id="header-2">
@@ -35,24 +50,27 @@
             <p>Arraste o cursor sobre o poster para mais informações. </p>
         </div>
     </header>
+
     <main>
-        <% for(let i=0;i < filmes.length; i++) { %>
+        <% for(let i=0; i < filmes.length; i++) { %>
 
-            <% for(let j=0; j < filmes[i].length; j++) { %>
+            <div id="filmes">
+                <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path %>"
+                    alt="<%= filmes[i].title %>">
+                <p class="nome-filme">
+                    <%= filmes[i].title %>
+                </p>
+            </div>
 
-                <div id="filmes">
-                    <img class="img-filmes"
-                        src="https://image.tmdb.org/t/p/w500/<%= filmes[i].results[j].poster_path %>"
-                        alt="<%= filmes[i].results[j].title %>">
-                </div>
-                
+
             <% } %>
-
-        <% } %>
     </main>
+
     <footer>
 
     </footer>
+    <script src="https://kit.fontawesome.com/f59b0f7f02.js" crossorigin="anonymous"></script>
+    <script src="js/js.js"></script>
 </body>
 
 </html>
