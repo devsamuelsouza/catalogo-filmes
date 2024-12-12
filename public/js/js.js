@@ -1,9 +1,20 @@
-let botao = document.getElementById('menu').addEventListener('click',()=>{
-    if (itens.style.display.includes('none')) {
-        itens.style.display = 'inline'
-    } else{
-        itens.style.display = 'none'
+let botao = document.getElementById('menu')
+let lista = document.getElementById('itens-selecionar')
+lista.style.display = 'none'
+
+botao.addEventListener('click', () => {
+    if (lista.style.display.includes('one')) {
+        lista.style.display = 'inline'
+    } else {
+        lista.style.display = 'none'
     }
 })
-let lista = document.getElementById('itens-selecionar')
+
+lista.addEventListener('mouseleave', () => {
+    lista.style.display = 'none'
+})
+
+
+
+
 

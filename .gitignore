@@ -1,3 +1,5 @@
-apikey.mjs
+.env
 routes.http
 node_modules
+package.json
+package-lock.json

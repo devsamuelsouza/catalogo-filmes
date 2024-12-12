@@ -14,6 +14,7 @@
 
 body {
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -222,7 +223,95 @@ main {
     font-size: 0.8em;
 }
 
-@media screen and (max-width: 558px) {
+footer {
+    margin-top: 2em;
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #1a1a1c;
+}
+
+#footer1 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.footer-titulo {
+    font-size: 1em;
+    margin: 1em 0;
+}
+
+.opacity {
+    opacity: 0;
+    -webkit-user-select: none;
+    user-select: none;
+    margin: 0.3em;
+
+    &:hover {
+        cursor: default;
+    }
+}
+
+.footer1-link {
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0.3em;
+    transition: transform ease-in 0.01s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+}
+
+.footer1-itens {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    font-size: 0.8em;
+}
+
+.footer1-element {
+    margin: 1em 3em;
+}
+
+#footer2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-width: 20vw;
+    margin: 1em 0;
+}
+
+#footer2-icons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer2-icon {
+    max-height: 1em;
+    margin: 0.5em;
+    transition: transform ease-in 0.1;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+#footer3{
+    min-width: 100vw;
+    padding: 0.5em;
+    background-color: #121212;
+}
+
+#copyright{
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
 
     .img-filmes {
         max-width: 70%;
@@ -237,6 +326,7 @@ main {
         display: none;
     }
 
+
     #seleciona-tipo {
         display: inline;
 
@@ -245,7 +335,24 @@ main {
         }
     }
 
-    #itens-selecionar {
-        display: none;
+    #menu {
+        max-height: 2em;
+        transition: transform ease-in 0.01s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.8);
+        }
+    }
+
+    .footer1-element {
+        margin: 1em;
+    }
+
+    #footer-logo{
+        max-height: 2em;
     }
 }

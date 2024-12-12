@@ -1,7 +1,10 @@
 import express from 'express'
-import apikey from './apikey.mjs'
+import { configDotenv } from 'dotenv'
 
 const server = express()
+
+configDotenv()
+const apikey = process.env.CHAVE_API
 
 server.set('view engine', 'ejs')
 server.set('views', './views')
@@ -9,7 +12,7 @@ server.use(express.static('public'));
 
 // Rotas
 
-//Home
+//Home _________________________________________________________
 server.get('/', async (request, response) => {
 
     const filmes = []
@@ -21,6 +24,8 @@ server.get('/', async (request, response) => {
     const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5`
     const url6 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=6`
     const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=7`
+    const url8 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=8`
+    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=9`
 
     const reply = await fetch(url)
     const reply2 = await fetch(url2)
@@ -29,6 +34,8 @@ server.get('/', async (request, response) => {
     const reply5 = await fetch(url5)
     const reply6 = await fetch(url6)
     const reply7 = await fetch(url7)
+    const reply8 = await fetch(url8)
+    const reply9 = await fetch(url9)
 
     const data = await reply.json()
     const data2 = await reply2.json()
@@ -37,6 +44,8 @@ server.get('/', async (request, response) => {
     const data5 = await reply5.json()
     const data6 = await reply6.json()
     const data7 = await reply7.json()
+    const data8 = await reply8.json()
+    const data9 = await reply9.json()
 
 
     filmes.push(...data.results)
@@ -46,16 +55,19 @@ server.get('/', async (request, response) => {
     filmes.push(...data5.results)
     filmes.push(...data6.results)
     filmes.push(...data7.results)
+    filmes.push(...data8.results)
+    filmes.push(...data9.results)
 
     response.render('index', { filmes })
 })
+//_________________________________________________________
 
-// Popular
+// Popular _________________________________________________________
 server.get('/popular', () => {
 
 })
+//_________________________________________________________
 
-
-server.listen({ port: 8080 }, () => {
-    console.log("HTTP server running http://localhost:8080")
+server.listen({ port: 3333 }, () => {
+    console.log("HTTP server running http://localhost:3333")
 })
