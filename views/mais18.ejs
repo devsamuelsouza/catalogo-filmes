@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Samuca Cine - Popular</title>
+    <title>Samuca Cine - +18</title>
 </head>
 
 <body>
@@ -53,13 +53,13 @@
     </header>
 
     <main>
-        <% for(let i=0; i < filmesPoupulares.length; i++) { %>
+        <% for(let i=0; i < filmesmais18.length; i++) { %>
 
             <div id="filmes">
-                <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmesPoupulares[i].poster_path %>"
-                    alt="<%= filmesPoupulares[i].title %>">
+                <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmesmais18[i].poster_path %>"
+                    alt="<%= filmesmais18[i].title %>">
                 <p class="nome-filme">
-                    <%= filmesPoupulares[i].title %>
+                    <%= filmesmais18[i].title %>
                 </p>
             </div>
 
