@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Samuca Cine - Popular</title>
+    <title>Samuca Cine</title>
 </head>
 
 <body>
@@ -16,11 +16,10 @@
                 <i id="menu" class="fa-solid fa-bars fa-2xl" style="color: #ffffff;"></i>
                 <div id="itens-selecionar">
                     <a id="item1selecionar" class="texto-selecionar" href="/sobre">Sobre</a>
-                    <a id="item2selecionar" class="texto-selecionar" href="/18">+18</a>
                     <a id="item3selecionar" class="texto-selecionar" href="/filmes">Filmes</a>
                     <a id="item4selecionar" class="texto-selecionar" href="/series">Séries</a>
                     <a id="item5selecionar" class="texto-selecionar" href="/populares">Populares</a>
-                    <a id="item6selecionar" class="texto-selecionar" href="/lancamento">Lançamentos</a>
+                    <a id="item6selecionar" class="texto-selecionar" href="/lancamentos">Lançamentos</a>
                 </div>
             </div>
 
@@ -28,11 +27,10 @@
 
             <div class="header-item" id="links-header">
                 <a class="texto-header" href="/sobre">Sobre</a>
-                <a class="texto-header" href="/18">+ 18</a>
                 <a class="texto-header" href="/filmes">Filmes</a>
                 <a class="texto-header" href="/series">Séries</a>
                 <a class="texto-header" href="/populares">Populares</a>
-                <a class="texto-header" href="/lancamento">Lamçamentos</a>
+                <a class="texto-header" href="/lancamentos">Lançamentos</a>
             </div>
 
             <div class="header-item" id="social-header">
@@ -57,8 +55,9 @@
 
             <div id="filmes">
                 <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmesPoupulares[i].poster_path %>"
-                    alt="<%= filmesPoupulares[i].title %>">
+                    alt="<%= filmesPoupulares[i].name %> <%= filmesPoupulares[i].title %>">
                 <p class="nome-filme">
+                    <%= filmesPoupulares[i].name %>
                     <%= filmesPoupulares[i].title %>
                 </p>
             </div>

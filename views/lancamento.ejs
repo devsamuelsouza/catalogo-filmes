@@ -4,26 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/logo(alternativa).png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/lancamento.css">
-    <title>Filmes S+</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Samuca Cine</title>
 </head>
 
 <body>
     <header>
-        <img id="logo" src="/img/logo(alternativa).png" alt="">
-        <div id="paginas">
-            <a href="/animacao">Animação</a>
-            <a href="/popular">Populares</a>
-            <a href="/lancamento">Lançamentos</a>
+        <div id="header-1">
+            <div class="header-item" id="seleciona-tipo">
+                <i id="menu" class="fa-solid fa-bars fa-2xl" style="color: #ffffff;"></i>
+                <div id="itens-selecionar">
+                    <a id="item1selecionar" class="texto-selecionar" href="/sobre">Sobre</a>
+                    <a id="item3selecionar" class="texto-selecionar" href="/filmes">Filmes</a>
+                    <a id="item4selecionar" class="texto-selecionar" href="/series">Séries</a>
+                    <a id="item5selecionar" class="texto-selecionar" href="/populares">Populares</a>
+                    <a id="item6selecionar" class="texto-selecionar" href="/lancamentos">Lançamentos</a>
+                </div>
+            </div>
+
+            <img class="header-item" id="logo" src="/img/logo.png" alt="">
+
+            <div class="header-item" id="links-header">
+                <a class="texto-header" href="/sobre">Sobre</a>
+                <a class="texto-header" href="/filmes">Filmes</a>
+                <a class="texto-header" href="/series">Séries</a>
+                <a class="texto-header" href="/populares">Populares</a>
+                <a class="texto-header" href="/lancamentos">Lançamentos</a>
+            </div>
+
+            <div class="header-item" id="social-header">
+                <a class="social-header" href=""><img class="social-img" src="/img/social/instagram.png"
+                        alt="Instagram"></a>
+                <a class="social-header" href=""><img class="social-img" src="/img/social/linkedin.png"
+                        alt="Linkedin"></a>
+                <a class="social-header" href="https://github.com/devsamuca"><img class="social-img"
+                        src="/img/social/github.png" alt="Github"></a>
+            </div>
+
+        </div>
+
+        <div id="header-2">
+            <h1>Conheça meu catálogo de Filmes e Séries</h1>
+            <p>Arraste o cursor sobre o poster para mais informações. </p>
         </div>
     </header>
-    <main>
 
+    <main>
+        <% for(let i=0; i < filmesLancamentos.length; i++) { %>
+
+            <div id="filmes">
+                <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmesLancamentos[i].poster_path %>"
+                    alt="<%= filmesLancamentos[i].name %> <%= filmesLancamentos[i].title %>">
+                <p class="nome-filme">
+                    <%= filmesLancamentos[i].name %>
+                    <%= filmesLancamentos[i].title %>
+                </p>
+            </div>
+            <% } %>
     </main>
+
     <footer>
-        
+        <div id="footer2">
+
+
+            <h1 id="titulo-sociais" class="footer-titulo">Midias Sociais</h1>
+            <div id="footer2-icons">
+                <a target="_blank" rel=”noopener” href="https://github.com/devsamuca"><img class="footer2-icon"
+                        src="img/social/github.png" alt="Github"></a>
+                <a target="_blank" rel=”noopener” href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
+                        src="img/social/instagram.png" alt="Instagram"></a>
+                <a target="_blank" rel=”noopener” href="https://www.linkedin.com/in/devsamuel/"><img
+                        class="footer2-icon" src="img/social/linkedin.png" alt="Linkedin"></a>
+                <a target="_blank" rel=”noopener” href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
+                        src="img/social/youtube.png" alt="Youtube"></a>
+                <a target="_blank" rel=”noopener” href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
+                        class="footer2-icon" src="img/social/spotify.png" alt="Spotify"></a>
+                <a target="_blank" rel=”noopener” href="https://x.com/samucaioo"><img class="footer2-icon"
+                        src="img/social/x.png" alt="X"></a>
+                <a target="_blank" rel=”noopener” href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
+                        src="img/social/discordi.png" alt="Discord"></a>
+            </div>
+
+        </div>
+        <div id="footer1">
+            <div class="footer1-element" id="footer-linguagem">
+                <h1 class="footer-titulo">Tecnologias</h1>
+                <div class="footer1-itens">
+                    <a class="footer1-link" href="https://www.w3schools.com/nodejs/default.asp">Node</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/html/default.asp">Html</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/css/default.asp">Css</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/js/default.asp">Java Script</a>
+                </div>
+            </div>
+
+            <div class="footer1-element" id="footer-ferramentas">
+                <h1 class="footer-titulo">Ferramentas</h1>
+                <div class="footer1-itens">
+                    <a class="footer1-link" href="https://vscode.dev/?vscode-lang=pt-br">VsCode</a>
+                    <a class="footer1-link" href="https://git-scm.com/">Git</a>
+                    <a class="footer1-link"
+                        href="https://www.flaticon.com/br/?k=1719151636320&log-in=google">Flaticon</a>
+                    <a class="footer1-link" href="https://fontawesome.com/">Fontawesome</a>
+                </div>
+            </div>
+
+            <div class="footer1-element" id="footer-api">
+                <h1 class="footer-titulo">Api</h1>
+                <div class="footer1-itens">
+                    <a class="footer1-link" href="https://developer.themoviedb.org/reference/discover-movie">The Movie
+                        DataBase</a>
+                    <p class="opacity">.</p>
+                    <p class="opacity">.</p>
+                    <p class="opacity">.</p>
+                </div>
+            </div>
+        </div>
+        <div id="footer3">
+            <p id="copyright" class="footer-titulo">©Copyright 2024. Desenvolvido por Samuel Souza.</p>
+        </div>
     </footer>
+    <script src="https://kit.fontawesome.com/f59b0f7f02.js" crossorigin="anonymous"></script>
+    <script src="js/js.js"></script>
 </body>
 
 </html>

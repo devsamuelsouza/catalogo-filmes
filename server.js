@@ -17,14 +17,14 @@ server.get('/', async (request, response) => {
 
     const filmes = []
 
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=1`
+    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=2`
     const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=2`
     const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=3`
-    const url4 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=4`
+    const url4 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=4`
     const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5`
-    const url6 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=6`
+    const url6 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=6`
     const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=7`
-    const url8 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=8`
+    const url8 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=8`
     const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=9`
 
     const reply = await fetch(url)
@@ -66,16 +66,15 @@ server.get('/', async (request, response) => {
 server.get('/populares', async (request, response) => {
     const filmesPoupulares = []
 
-    const url = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&popular
-`
-    const url2 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=2`
-    const url3 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=3`
-    const url4 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=4`
-    const url5 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=5`
-    const url6 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=6`
-    const url7 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=7`
-    const url8 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=8`
-    const url9 = `https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&&page=9`
+    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=2&vote_average.gte=7`
+    const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=2&vote_average.gte=7`
+    const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=3&vote_average.gte=7`
+    const url4 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=4&vote_average.gte=7`
+    const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5&vote_average.gte=7`
+    const url6 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=6&vote_average.gte=7`
+    const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=7&vote_average.gte=7`
+    const url8 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=8&vote_average.gte=7`
+    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=9&vote_average.gte=7`
 
     const reply = await fetch(url)
     const reply2 = await fetch(url2)
@@ -112,20 +111,22 @@ server.get('/populares', async (request, response) => {
 })
 //_________________________________________________________
 
-// +18 _________________________________________________________
-server.get('/18', async (request, response) => {
-    const filmesmais18 = []
+//Lançamentos _________________________________________________________
+server.get('/lancamentos', async (request, response) => {
+    const filmesLancamentos = []
 
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true
-`
-    const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=2`
-    const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=3`
-    const url4 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=4`
-    const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=5`
-    const url6 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=6`
-    const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=7`
-    const url8 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=8`
-    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&include_adult=true&page=9`
+    const dataAtual = new Date()
+    const dataHoje = `${dataAtual.getFullYear()}-${dataAtual.getMonth()}-${dataAtual.getDate()}`
+
+    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=2&year=1`
+    const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=2&year=1`
+    const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=3&year=1`
+    const url4 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=4&year=1`
+    const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5&year=1`
+    const url6 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=6&year=1`
+    const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=7&year=1`
+    const url8 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=8&year=1`
+    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=9&year=1`
 
     const reply = await fetch(url)
     const reply2 = await fetch(url2)
@@ -148,17 +149,17 @@ server.get('/18', async (request, response) => {
     const data9 = await reply9.json()
 
 
-    filmesmais18.push(...data.results)
-    filmesmais18.push(...data2.results)
-    filmesmais18.push(...data3.results)
-    filmesmais18.push(...data4.results)
-    filmesmais18.push(...data5.results)
-    filmesmais18.push(...data6.results)
-    filmesmais18.push(...data7.results)
-    filmesmais18.push(...data8.results)
-    filmesmais18.push(...data9.results)
+    filmesLancamentos.push(...data.results)
+    filmesLancamentos.push(...data2.results)
+    filmesLancamentos.push(...data3.results)
+    filmesLancamentos.push(...data4.results)
+    filmesLancamentos.push(...data5.results)
+    filmesLancamentos.push(...data6.results)
+    filmesLancamentos.push(...data7.results)
+    filmesLancamentos.push(...data8.results)
+    filmesLancamentos.push(...data9.results)
 
-    response.render('mais18', { filmesmais18 })
+    response.render('lancamento', { filmesLancamentos })
 })
 //_________________________________________________________
 
