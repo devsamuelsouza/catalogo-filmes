@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <img class="header-item" id="logo" src="/img/logo.png" alt="">
+            <a href="/"><img class="header-item" id="logo" src="/img/logo.png" alt="Samuca Cine"></a>
 
             <div class="header-item" id="links-header">
                 <a class="texto-header" href="/sobre">Sobre</a>
@@ -34,35 +34,52 @@
             </div>
 
             <div class="header-item" id="social-header">
-                <a class="social-header" href=""><img class="social-img" src="/img/social/instagram.png"
-                        alt="Instagram"></a>
-                <a class="social-header" href=""><img class="social-img" src="/img/social/linkedin.png"
-                        alt="Linkedin"></a>
-                <a class="social-header" href="https://github.com/devsamuca"><img class="social-img"
-                        src="/img/social/github.png" alt="Github"></a>
+                <a target="_blank" rel="noopener" class="social-header" href=""><img class="social-img"
+                        src="/img/social/instagram.png" alt="Instagram"></a>
+                <a target="_blank" rel="noopener" class="social-header" href=""><img class="social-img"
+                        src="/img/social/linkedin.png" alt="Linkedin"></a>
+                <a target="_blank" rel="noopener" class="social-header" href="https://github.com/devsamuca"><img
+                        class="social-img" src="/img/social/github.png" alt="Github"></a>
             </div>
 
         </div>
 
         <div id="header-2">
+            <h1>Filmes e Séries</h1>
             <h1>Conheça meu catálogo de Filmes e Séries</h1>
             <p>Arraste o cursor sobre o poster para mais informações. </p>
         </div>
     </header>
 
     <main>
+
         <% for(let i=0; i < filmes.length; i++) { %>
 
-            <div id="filmes">
-                <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path %>"
-                    alt="<%= filmes[i].name %> <%= filmes[i].title %>">
+            <div class="filmes">
+                <a class="link-info-filme" href="/info/<%= filmes[i].id %>">
+                    <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path %>"
+                        alt="<%= filmes[i].name %> <%= filmes[i].title %>">
+
+                    <div class="info-filme">
+                        <p>
+                            <%= filmes[i].title %>
+                                <%= filmes[i].name %>
+                        </p>
+                        <p>
+                            <%= filmes[i].release_date %>
+                        </p>
+                        <p>
+                            <% for(let p=0;p < filmes[i].genres; p++) {%>
+                                <%= filmes[i].genres[p].name %>
+                                <%}%>
+                        </p>
+                    </div>
+                </a>
                 <p class="nome-filme">
                     <%= filmes[i].name %>
-                    <%= filmes[i].title %>
+                        <%= filmes[i].title %>
                 </p>
             </div>
-
-
             <% } %>
     </main>
 
@@ -73,19 +90,19 @@
             <h1 id="titulo-sociais" class="footer-titulo">Midias Sociais</h1>
             <div id="footer2-icons">
                 <a target="_blank" rel=”noopener” href="https://github.com/devsamuca"><img class="footer2-icon"
-                        src="img/social/github.png" alt="Github"></a>
+                        src="/img/social/github.png" alt="Github"></a>
                 <a target="_blank" rel=”noopener” href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
-                        src="img/social/instagram.png" alt="Instagram"></a>
+                        src="/img/social/instagram.png" alt="Instagram"></a>
                 <a target="_blank" rel=”noopener” href="https://www.linkedin.com/in/devsamuel/"><img
-                        class="footer2-icon" src="img/social/linkedin.png" alt="Linkedin"></a>
+                        class="footer2-icon" src="/img/social/linkedin.png" alt="Linkedin"></a>
                 <a target="_blank" rel=”noopener” href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
-                        src="img/social/youtube.png" alt="Youtube"></a>
+                        src="/img/social/youtube.png" alt="Youtube"></a>
                 <a target="_blank" rel=”noopener” href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
-                        class="footer2-icon" src="img/social/spotify.png" alt="Spotify"></a>
+                        class="footer2-icon" src="/img/social/spotify.png" alt="Spotify"></a>
                 <a target="_blank" rel=”noopener” href="https://x.com/samucaioo"><img class="footer2-icon"
-                        src="img/social/x.png" alt="X"></a>
+                        src="/img/social/x.png" alt="X"></a>
                 <a target="_blank" rel=”noopener” href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
-                        src="img/social/discordi.png" alt="Discord"></a>
+                        src="/img/social/discordi.png" alt="Discord"></a>
             </div>
 
         </div>
@@ -103,11 +120,13 @@
             <div class="footer1-element" id="footer-ferramentas">
                 <h1 class="footer-titulo">Ferramentas</h1>
                 <div class="footer1-itens">
-                    <a class="footer1-link" href="https://vscode.dev/?vscode-lang=pt-br">VsCode</a>
-                    <a class="footer1-link" href="https://git-scm.com/">Git</a>
-                    <a class="footer1-link"
+                    <a target="_blank" rel="noopener" class="footer1-link"
+                        href="https://vscode.dev/?vscode-lang=pt-br">VsCode</a>
+                    <a target="_blank" rel="noopener" class="footer1-link" href="https://git-scm.com/">Git</a>
+                    <a target="_blank" rel="noopener" class="footer1-link"
                         href="https://www.flaticon.com/br/?k=1719151636320&log-in=google">Flaticon</a>
-                    <a class="footer1-link" href="https://fontawesome.com/">Fontawesome</a>
+                    <a target="_blank" rel="noopener" class="footer1-link"
+                        href="https://fontawesome.com/">Fontawesome</a>
                 </div>
             </div>
 

@@ -185,30 +185,39 @@ p {
 
 main {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
 }
 
-#filmes {
+.filmes {
     display: flex;
     justify-content: center;
+    position: relative;
     align-items: center;
     flex-direction: column;
     margin: 1.5em 0;
-    transition: transform ease-in 0.7s;
-
-    &:hover {
-        transform: scale(1.1);
-    }
 }
 
 .img-filmes {
     max-width: 50%;
     border-radius: 0.5em;
+    transition: transform ease-in 0.7s;
 
+    &:hover {
+        transform: scale(1.2);
+    }
+
+}
+
+.link-info-filme{
+    text-align: center;
 }
 
 .nome-filme {
     font-size: 0.8em;
+}
+
+.info-filme{
+    display: block;
 }
 
 footer {
@@ -307,6 +316,9 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+    .nome-filme {
+        font-size: 0.5em;
+    }
 
     .img-filmes {
         max-width: 70%;
@@ -320,7 +332,6 @@ footer {
     .social-header {
         display: none;
     }
-
 
     #seleciona-tipo {
         display: inline;
