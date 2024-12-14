@@ -143,19 +143,6 @@ p {
     }
 }
 
-#item6selecionar {
-    margin: 22em 0;
-    color: #000000;
-    background-color: #ffffff;
-    padding: 2em;
-    width: 100px;
-    transition: transform ease-in 0.7s;
-
-    &:hover {
-        transform: scale(1.1);
-        color: #000000;
-    }
-}
 
 #logo {
     max-height: 3em;
