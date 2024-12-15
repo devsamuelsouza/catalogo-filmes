@@ -56,25 +56,31 @@
         <% for(let i=0; i < filmes.length; i++) { %>
 
             <div class="filmes">
-                <a class="link-info-filme" href="/info/<%= filmes[i].id %>">
-                    <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path %>"
-                        alt="<%= filmes[i].name %> <%= filmes[i].title %>">
 
-                    <div class="info-filme">
-                        <p>
-                            <%= filmes[i].title %>
-                                <%= filmes[i].name %>
-                        </p>
-                        <p>
-                            <%= filmes[i].release_date %>
-                        </p>
-                        <p>
-                            <% for(let p=0;p < filmes[i].genres; p++) {%>
-                                <%= filmes[i].genres[p].name %>
-                                <%}%>
-                        </p>
-                    </div>
-                </a>
+                <section class="link-info-filme">
+
+                    <a class="link-info" href="/info/:<%= filmes[i].id %>">
+                        <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path %>"
+                            alt="<%= filmes[i].name %> <%= filmes[i].title %>">
+
+                        <div class="info-filme">
+                            <p>
+                                <%= filmes[i].title %>
+                                    <%= filmes[i].name %>
+                            </p>
+                            <p>
+                                <%= filmes[i].release_date %>
+                                    <%= filmes[i].first_air_date %>
+                            </p>
+                            <p>
+                                <% for(let j=0;j < filmes[i].genre_ids.length; j++) {%>
+                                    <%= idsGeneros.get(filmes[i].genre_ids[j])  %>.
+                                        <%}%>
+                            </p>
+                        </div>
+                    </a>
+
+                </section>
                 <p class="nome-filme">
                     <%= filmes[i].name %>
                         <%= filmes[i].title %>
