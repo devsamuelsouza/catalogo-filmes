@@ -57,6 +57,7 @@ p {
 #itens-selecionar {
     position: relative;
     display: none;
+    z-index: 99999;
 }
 
 #seleciona-tipo {
@@ -76,7 +77,7 @@ p {
     background-color: #ffffff;
     padding: 2em;
     width: 100px;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: scale(1.1);
@@ -91,7 +92,7 @@ p {
     background-color: #ffffff;
     padding: 2em;
     width: 100px;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: scale(1.1);
@@ -106,7 +107,7 @@ p {
     background-color: #ffffff;
     padding: 2em;
     width: 100px;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: scale(1.1);
@@ -121,7 +122,7 @@ p {
     background-color: #ffffff;
     padding: 2em;
     width: 100px;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: scale(1.1);
@@ -135,7 +136,7 @@ p {
     background-color: #ffffff;
     padding: 2em;
     width: 100px;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: scale(1.1);
@@ -146,7 +147,7 @@ p {
 
 #logo {
     max-height: 3em;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: translateY(-10px);
@@ -160,7 +161,7 @@ p {
     margin: 1em;
     font-size: 1.1em;
     padding: 1em;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         background-color: #ffffff;
@@ -172,7 +173,7 @@ p {
 .social-img {
     height: 1.2em;
     margin: 0 0.2em;
-    transition: transform ease-in 0.7s;
+    transition: transform ease-in 0.2s;
 
     &:hover {
         transform: translateY(-10px);
@@ -185,7 +186,7 @@ p {
 
 main {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
 }
 
 .filmes {
@@ -198,15 +199,8 @@ main {
 
 .img-filmes {
     max-width: 100%;
-    transition: border-radius ease-in 0.7s, filter ease-in 0.7s, transform ease-in 0.7s;
+    transition: filter 0.2s ease-in, transform 0.2s ease-in, opacity 0.2s ease-in;
     display: flex;
-
-    &:hover {
-        opacity: 0.5;
-        border-radius: 0.5em;
-        filter: blur(5px);
-        transform: scale(1.1);
-    }
 }
 
 .link-info-filme {
@@ -227,17 +221,41 @@ main {
     font-weight: bold;
 }
 
-.nome-filme {
-    font-size: 0.8em;
-}
-
 .info-filme {
     position: absolute;
-    min-height: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, border 0.2s ease-in;
+    color: #ffffff;
+}
+
+.link-info:hover .info-filme {
+    opacity: 1;
+    border: 1px solid #ffffff;
+    background-color: #00000059;
+}
+
+.info-filme p {
+    font-size: 0.8em;
+    margin: 5px 0;
+}
+
+.link-info:hover .img-filmes {
+    opacity: 0.5;
+    filter: blur(5px);
+}
+
+.nome-filme {
+    font-size: 0.8em;
+    font-weight: bold;
+    text-align: center;
 }
 
 footer {
@@ -337,12 +355,34 @@ footer {
 
 @media screen and (max-width: 800px) {
     .nome-filme {
-        font-size: 0.5em;
+        font-size: 0.8em;
     }
 
-    .img-filmes {
-        max-width: 70%;
-        border-radius: 0.5em;
+    .info-filme {
+        display: none;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
+
+    .link-info-filme {
+        max-width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .link-info:hover .img-filmes {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1.1);
+    }
+
+    #header-2 p {
+        display: none;
     }
 
     #links-header {

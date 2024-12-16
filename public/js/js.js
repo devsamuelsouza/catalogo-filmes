@@ -14,9 +14,6 @@ lista.addEventListener('mouseleave', () => {
     lista.style.display = 'none'
 })
 
-let imgs = document.getElementsByClassName('img-filmes');
-let infos = document.getElementsByClassName('link-info');
-
 
 
 

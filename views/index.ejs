@@ -53,37 +53,43 @@
 
     <main>
 
-        <% for(let i=0; i < filmes.length; i++) { %>
+        <% for(let i=0; i < filmesSeries.length; i++) { %>
 
             <div class="filmes">
 
                 <section class="link-info-filme">
 
-                    <a class="link-info" href="/info/:<%= filmes[i].id %>">
-                        <img class="img-filmes" src="https://image.tmdb.org/t/p/w500/<%= filmes[i].poster_path %>"
-                            alt="<%= filmes[i].name %> <%= filmes[i].title %>">
+                    <% let parametro; if (filmesSeries[i].title !=null) { parametro='movie' ; } else { parametro='tv' ;
+                        } %>
 
-                        <div class="info-filme">
-                            <p>
-                                <%= filmes[i].title %>
-                                    <%= filmes[i].name %>
-                            </p>
-                            <p>
-                                <%= filmes[i].release_date %>
-                                    <%= filmes[i].first_air_date %>
-                            </p>
-                            <p>
-                                <% for(let j=0;j < filmes[i].genre_ids.length; j++) {%>
-                                    <%= idsGeneros.get(filmes[i].genre_ids[j])  %>.
-                                        <%}%>
-                            </p>
-                        </div>
-                    </a>
+
+                        <a class="link-info" href="/<%= parametro%>/<%= filmesSeries[i].id %>">
+                            <img class="img-filmes"
+                                src="https://image.tmdb.org/t/p/w500/<%= filmesSeries[i].poster_path %>"
+                                alt="<%= filmesSeries[i].name %> <%= filmesSeries[i].title %>">
+
+                            <div class="info-filme">
+                                <p>Titulo:
+                                    <%= filmesSeries[i].title %>
+                                        <%= filmesSeries[i].name %>
+                                </p>
+                                <p>
+                                    Lançamento:
+                                    <%= filmesSeries[i].release_date %>
+                                        <%= filmesSeries[i].first_air_date %>
+                                </p>
+                                <p>Genero:
+                                    <% for(let j=0;j < filmesSeries[i].genre_ids.length; j++) {%>
+                                        <%= idsGeneros.get(filmesSeries[i].genre_ids[j]) %>.
+                                            <%}%>
+                                </p>
+                            </div>
+                        </a>
 
                 </section>
                 <p class="nome-filme">
-                    <%= filmes[i].name %>
-                        <%= filmes[i].title %>
+                    <%= filmesSeries[i].name %>
+                        <%= filmesSeries[i].title %>
                 </p>
             </div>
             <% } %>
