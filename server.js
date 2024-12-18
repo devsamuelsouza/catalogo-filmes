@@ -117,7 +117,7 @@ server.get('/:tipo/:id', async (request, response) => {
 
 // Sobre_________________________________________________________
 
-server.get('/', (request, response) => {
+server.get('/sobre', (request, response) => {
 
     response.render('sobre')
 })
