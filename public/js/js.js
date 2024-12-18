@@ -4,7 +4,7 @@ lista.style.display = 'none'
 
 botao.addEventListener('click', () => {
     if (lista.style.display.includes('one')) {
-        lista.style.display = 'inline'
+        lista.style.display = 'block'
     } else {
         lista.style.display = 'none'
     }

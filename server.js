@@ -13,7 +13,7 @@ server.use(express.static('public'));
 //ID´s
 const idsGeneros = new Map();
 
-// Adicionando os objetos ao Map
+// Generos _________________________________________________________
 const generos = [
     { "id": 28, "name": "Action" },
     { "id": 12, "name": "Adventure" },
@@ -55,170 +55,76 @@ const generos = [
 generos.forEach(genero => {
     idsGeneros.set(genero.id, genero.name);
 });
-
+//_________________________________________________________
 // Rotas
 
-//Home _________________________________________________________
+//Home_________________________________________________________
 server.get('/', async (request, response) => {
 
     const filmesSeries = []
+    const randomPage = Math.random() * 300
+    const urlFilmes = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${randomPage}`
+    const urlSeries = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${randomPage}`
 
-    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=1`
-    const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=1`
-    const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=2`
-    const url4 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=5`
-    const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=3`
-    const url6 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=3`
-    const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=4`
-    const url8 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=4`
-    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5`
-
-    const reply = await fetch(url)
-    const reply2 = await fetch(url2)
-    const reply3 = await fetch(url3)
-    const reply4 = await fetch(url4)
-    const reply5 = await fetch(url5)
-    const reply6 = await fetch(url6)
-    const reply7 = await fetch(url7)
-    const reply8 = await fetch(url8)
-    const reply9 = await fetch(url9)
+    const reply = await fetch(urlFilmes)
+    const reply2 = await fetch(urlSeries)
 
     const data = await reply.json()
     const data2 = await reply2.json()
-    const data3 = await reply3.json()
-    const data4 = await reply4.json()
-    const data5 = await reply5.json()
-    const data6 = await reply6.json()
-    const data7 = await reply7.json()
-    const data8 = await reply8.json()
-    const data9 = await reply9.json()
-
 
     filmesSeries.push(...data.results)
     filmesSeries.push(...data2.results)
-    filmesSeries.push(...data3.results)
-    filmesSeries.push(...data4.results)
-    filmesSeries.push(...data5.results)
-    filmesSeries.push(...data6.results)
-    filmesSeries.push(...data7.results)
-    filmesSeries.push(...data8.results)
-    filmesSeries.push(...data9.results)
 
 
     response.render('index', { filmesSeries, idsGeneros })
 })
-//_________________________________________________________
+//_________________________________________________________________
+
+// Paginas_________________________________________________________
+server.get('/pagina=:numPagina', async (request, response) => {
+    const numPagina = request.params.numPagina
+    const numPaginaRandom = Math.random() * 500
+
+    const filmesSeries = []
+
+    const urlFilmes = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+    const urlSeries = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+
+    const reply = await fetch(urlFilmes)
+    const reply2 = await fetch(urlSeries)
+
+    const data = await reply.json()
+    const data2 = await reply2.json()
+
+    filmesSeries.push(...data.results)
+    filmesSeries.push(...data2.results)
+
+
+    response.render('index', { filmesSeries, idsGeneros })
+})
+//___________________________________________________________________
 
 //Informações_________________________________________________________
 server.get('/:tipo/:id', async (request, response) => {
 
-    const url = `https://api.themoviedb.org/3/${request.params.tipo}/${request.params.id}?api_key=${apikey}`
+    const url = `https://api.themoviedb.org/3/${request.params.tipo}/${request.params.id}?api_key=${apikey}&language=pt-BR`
     const reply = await fetch(url)
     const data = await reply.json()
 
     response.render('info.ejs', { data, idsGeneros })
 })
-
 //_________________________________________________________
 
-//Lançamentos _________________________________________________________
-server.get('/lancamentos', async (request, response) => {
-    const filmesLancamentos = []
+// Sobre_________________________________________________________
 
-    const dataAtual = new Date()
-    const dataHoje = `${dataAtual.getFullYear()}`
+server.get('/', (request, response) => {
 
-    const url = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=2&primary_release_year=2024${dataHoje}`
-    const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=2&primary_release_year=2024${dataHoje}`
-    const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=3&primary_release_year=2024${dataHoje}`
-    const url4 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=4&primary_release_year=2024${dataHoje}`
-    const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5&primary_release_year=2024${dataHoje}`
-    const url6 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=6&primary_release_year=2024${dataHoje}`
-    const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=7&primary_release_year=2024${dataHoje}`
-    const url8 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=8&primary_release_year=2024${dataHoje}`
-    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=9&primary_release_year=2024${dataHoje}`
-
-    const reply = await fetch(url)
-    const reply2 = await fetch(url2)
-    const reply3 = await fetch(url3)
-    const reply4 = await fetch(url4)
-    const reply5 = await fetch(url5)
-    const reply6 = await fetch(url6)
-    const reply7 = await fetch(url7)
-    const reply8 = await fetch(url8)
-    const reply9 = await fetch(url9)
-
-    const data = await reply.json()
-    const data2 = await reply2.json()
-    const data3 = await reply3.json()
-    const data4 = await reply4.json()
-    const data5 = await reply5.json()
-    const data6 = await reply6.json()
-    const data7 = await reply7.json()
-    const data8 = await reply8.json()
-    const data9 = await reply9.json()
-
-
-    filmesLancamentos.push(...data.results)
-    filmesLancamentos.push(...data2.results)
-    filmesLancamentos.push(...data3.results)
-    filmesLancamentos.push(...data4.results)
-    filmesLancamentos.push(...data5.results)
-    filmesLancamentos.push(...data6.results)
-    filmesLancamentos.push(...data7.results)
-    filmesLancamentos.push(...data8.results)
-    filmesLancamentos.push(...data9.results)
-
-    response.render('lancamento', { filmesLancamentos })
+    response.render('sobre')
 })
-//_________________________________________________________
-
-//Filmes _________________________________________________________
-server.get('/filmes', async (request, response) => {
-
-    const filmes = []
-
-    const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=1&`
-    const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=2&`
-    const url3 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=3&`
-    const url4 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=4&`
-    const url5 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=5&`
-    const url6 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=6&`
-    const url7 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=7&`
-    const url8 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=8&`
-    const url9 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=9&`
-
-    const reply = await fetch(url)
-    const reply2 = await fetch(url2)
-    const reply3 = await fetch(url3)
-    const reply4 = await fetch(url4)
-    const reply5 = await fetch(url5)
-    const reply6 = await fetch(url6)
-    const reply7 = await fetch(url7)
-    const reply8 = await fetch(url8)
-    const reply9 = await fetch(url9)
-
-    const data = await reply.json()
-    const data2 = await reply2.json()
-    const data3 = await reply3.json()
-    const data4 = await reply4.json()
-    const data5 = await reply5.json()
-    const data6 = await reply6.json()
-    const data7 = await reply7.json()
-    const data8 = await reply8.json()
-    const data9 = await reply9.json()
-
-
-    filmes.push(...data.results)
-    filmes.push(...data2.results)
-    filmes.push(...data3.results)
-    filmes.push(...data4.results)
-    filmes.push(...data5.results)
-    filmes.push(...data6.results)
-    filmes.push(...data7.results)
-    filmes.push(...data8.results)
-    filmes.push(...data9.results)
-
+// _________________________________________________________
+// Rota de Erro
+server.use((request, response, next) => {
+    response.status(404).render('erro')
 })
 // _________________________________________________________
 

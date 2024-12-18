@@ -41,41 +41,100 @@
                 <a target="_blank" rel="noopener" class="social-header" href="https://github.com/devsamuca"><img
                         class="social-img" src="/img/social/github.png" alt="Github"></a>
             </div>
-
         </div>
 
-        <div id="header-2-info-filme">
-            <h1>Conheça meu catálogo de Filmes e Séries</h1>
-            <p id="generos">
-                <% let genero=[]; for(let i=0; i < data.genres.length; i++) { genero.push(data.genres[i].name) }; %>
-                    <% let generos=genero.join(', ')%>
-                    <%= generos %>
-            </p>
         </div>
     </header>
-    <main>
-        <div id="poster-filme">
-            <img src="https://image.tmdb.org/t/p/w500/<%= data.poster_path %>" alt="">
+    <main id="maininfo">
+        <div id="main-info">
+            <div id="poster-filmeserie">
+                <img id="poster-img" src="https://image.tmdb.org/t/p/w500/<%= data.poster_path %>"
+                    alt="<%= data.name %> <%= data.title%>">
+            </div>
+            <div id="sobre-filmeserie">
+                <h1>
+                    <%= data.name %>
+                        <%= data.title %>
+                </h1>
+
+                <p>
+                    <%if( data.first_air_date || data.release_date ){%>
+                        <strong>Estreia:</strong>
+                        <%= data.first_air_date %>
+                            <%= data.release_date %>
+                                <%}%>
+                </p>
+                <p>
+                    <%if( data.overview ){%>
+                        <strong>Visão geral:</strong>
+                        <%= data.overview %>
+                            <%}%>
+                </p>
+
+                <p>
+                    <%if( data.number_of_seasons ){%>
+                        <strong>Temporadas:</strong>
+                        <%= data.number_of_seasons %>
+                            <%}%>
+                </p>
+                <p>
+                    <%if( data.genres ){%>
+                        <% let genero=[]; for(let i=0; i < data.genres.length; i++) { genero.push(data.genres[i].name)
+                            }; %>
+                            <% let generos=genero.join(' - ')%>
+                            Generos: 
+                        <%= generos %>
+                            <%}%>
+                </p>
+
+                <p>
+                    <%if( data.vote_average ){%>
+                        Nota:
+                        <%= Math.round(data.vote_average * 10)/10 %>
+                            <%}%>
+                </p>
+                <p>
+                    <%if( data.runtime ){
+                        let minFilmeSerie = data.runtime
+
+                        let tempoFilmeSerie = minFilmeSerie / 60
+                        tempoFilmeSerie = Math.round(tempoFilmeSerie * 100) /100
+                        tempoFilmeSerie = String(tempoFilmeSerie)
+                        tempoFilmeSerie = tempoFilmeSerie.split(' .') %>
+                                <strong>Duração:</strong>
+                                <%= tempoFilmeSerie[0] %>h <%= tempoFilmeSerie[1] %>min
+                                        <%}%>
+                </p>
+            </div>
         </div>
     </main>
+
+    <section>
+        <div id="assistir">
+            <a href="https://www.max.com/br/pt" rel="noopener"><img class="assistir" src="/img/assistir/hbo.png" alt="HBO"></a>
+            <a href="https://globoplay.globo.com/" rel="noopener"><img class="assistir" src="/img/assistir/globoplay.png" alt="Globo"></a>
+            <a href="https://www.netflix.com/" rel="noopener"><img class="assistir" src="/img/assistir/netflix.png" alt="Netflix"></a>
+            <a href="https://www.primevideo.com/-/pt/offers/nonprimehomepage/ref=dv_web_force_root?language=pt"><img class="assistir" src="/img/assistir/prime-video.png" alt="Prime Video" rel="noopener"></a>
+        </div>
+    </section>
     <footer>
         <div id="footer2">
 
             <h1 id="titulo-sociais" class="footer-titulo">Midias Sociais</h1>
             <div id="footer2-icons">
-                <a target="_blank" rel=”noopener” href="https://github.com/devsamuca"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://github.com/devsamuca"><img class="footer2-icon"
                         src="/img/social/github.png" alt="Github"></a>
-                <a target="_blank" rel=”noopener” href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
                         src="/img/social/instagram.png" alt="Instagram"></a>
-                <a target="_blank" rel=”noopener” href="https://www.linkedin.com/in/devsamuel/"><img
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/devsamuel/"><img
                         class="footer2-icon" src="/img/social/linkedin.png" alt="Linkedin"></a>
-                <a target="_blank" rel=”noopener” href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
                         src="/img/social/youtube.png" alt="Youtube"></a>
-                <a target="_blank" rel=”noopener” href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
+                <a target="_blank" rel="noopener" href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
                         class="footer2-icon" src="/img/social/spotify.png" alt="Spotify"></a>
-                <a target="_blank" rel=”noopener” href="https://x.com/samucaioo"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://x.com/samucaioo"><img class="footer2-icon"
                         src="/img/social/x.png" alt="X"></a>
-                <a target="_blank" rel=”noopener” href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
                         src="/img/social/discordi.png" alt="Discord"></a>
             </div>
 
@@ -84,10 +143,14 @@
             <div class="footer1-element" id="footer-linguagem">
                 <h1 class="footer-titulo">Tecnologias</h1>
                 <div class="footer1-itens">
-                    <a class="footer1-link" href="https://www.w3schools.com/nodejs/default.asp">Node</a>
-                    <a class="footer1-link" href="https://www.w3schools.com/html/default.asp">Html</a>
-                    <a class="footer1-link" href="https://www.w3schools.com/css/default.asp">Css</a>
-                    <a class="footer1-link" href="https://www.w3schools.com/js/default.asp">Java Script</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/nodejs/default.asp"><img
+                            src="/img/icon/node.png" class="language" alt="">Node</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/html/default.asp"><img
+                            src="/img/icon/html.png" class="language" alt="">Html</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/css/default.asp"><img
+                            src="/img/icon/css.png" class="language" alt="">Css</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/js/default.asp"><img src="/img/icon/js.png"
+                            class="language" alt="">Java Script</a>
                 </div>
             </div>
 
@@ -95,19 +158,23 @@
                 <h1 class="footer-titulo">Ferramentas</h1>
                 <div class="footer1-itens">
                     <a target="_blank" rel="noopener" class="footer1-link"
-                        href="https://vscode.dev/?vscode-lang=pt-br">VsCode</a>
-                    <a target="_blank" rel="noopener" class="footer1-link" href="https://git-scm.com/">Git</a>
+                        href="https://vscode.dev/?vscode-lang=pt-br"><img src="/img/icon/vscode.png" class="language"
+                            alt="">VsCode</a>
+                    <a target="_blank" rel="noopener" class="footer1-link" href="https://git-scm.com/"><img
+                            src="/img/icon/git.png" class="language" alt="">Git</a>
                     <a target="_blank" rel="noopener" class="footer1-link"
-                        href="https://www.flaticon.com/br/?k=1719151636320&log-in=google">Flaticon</a>
-                    <a target="_blank" rel="noopener" class="footer1-link"
-                        href="https://fontawesome.com/">Fontawesome</a>
+                        href="https://www.flaticon.com/br/?k=1719151636320&log-in=google"><img src="/img/icon/node.png"
+                            class="language" alt="">Flaticon</a>
+                    <a target="_blank" rel="noopener" class="footer1-link" href="https://fontawesome.com/"><img
+                            src="/img/icon/fontawesome.png" class="language" alt="">Fontawesome</a>
                 </div>
             </div>
 
             <div class="footer1-element" id="footer-api">
                 <h1 class="footer-titulo">Api</h1>
                 <div class="footer1-itens">
-                    <a class="footer1-link" href="https://developer.themoviedb.org/reference/discover-movie">The Movie
+                    <a class="footer1-link" href="https://developer.themoviedb.org/reference/discover-movie"><img
+                            src="/img/icon/tmdb.png" class="language" alt="">The Movie
                         DataBase</a>
                     <p class="opacity">.</p>
                     <p class="opacity">.</p>
@@ -116,12 +183,11 @@
             </div>
         </div>
         <div id="footer3">
-            <p id="copyright" class="footer-titulo">©Copyright 2024. Desenvolvido por Samuel Souza.</p>
+            <p id="copyright" class="footer-titulo">©Copyright 2024. Desenvolvido por Samuel Souza.&#127801;</p>
         </div>
-
     </footer>
     <script src="https://kit.fontawesome.com/f59b0f7f02.js" crossorigin="anonymous"></script>
-    <script src="js/js.js"></script>
+    <script src="/js/js.js"></script>
 </body>
 
 </html>

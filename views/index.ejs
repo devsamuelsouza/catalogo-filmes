@@ -50,7 +50,18 @@
             <p>Arraste o cursor sobre o poster para mais informações. </p>
         </div>
     </header>
-
+    <section id="paginas">
+        <a href="/pagina=1">1</a>
+        <a href="/pagina=2">2</a>
+        <a href="/pagina=3">3</a>
+        <a href="/pagina=4">4</a>
+        <a href="/pagina=5">5</a>
+        <a href="/pagina=6">6</a>
+        <a href="/pagina=7">7</a>
+        <a href="/pagina=8">8</a>
+        <a href="/pagina=9">9</a>
+        <a href="/pagina=10">10</a>
+    </section>
     <main>
 
         <% for(let i=0; i < filmesSeries.length; i++) { %>
@@ -69,19 +80,21 @@
                                 alt="<%= filmesSeries[i].name %> <%= filmesSeries[i].title %>">
 
                             <div class="info-filme">
-                                <p>Titulo:
+                                <p>
                                     <%= filmesSeries[i].title %>
                                         <%= filmesSeries[i].name %>
                                 </p>
                                 <p>
-                                    Lançamento:
+                                    
                                     <%= filmesSeries[i].release_date %>
                                         <%= filmesSeries[i].first_air_date %>
                                 </p>
-                                <p>Genero:
-                                    <% for(let j=0;j < filmesSeries[i].genre_ids.length; j++) {%>
-                                        <%= idsGeneros.get(filmesSeries[i].genre_ids[j]) %>.
-                                            <%}%>
+                                <p>
+                                    <% let generosFilmesSeries=[] 
+                                    for(let j=0; j < filmesSeries[i].genre_ids.length; j++){
+                                         generosFilmesSeries.push(idsGeneros.get(filmesSeries[i].genre_ids[j]))
+                                    } %>
+                                            <%= generosFilmesSeries.join(' - ') %>
                                 </p>
                             </div>
                         </a>
@@ -93,7 +106,21 @@
                 </p>
             </div>
             <% } %>
+
     </main>
+
+    <section id="paginas">
+        <a href="/pagina=1">1</a>
+        <a href="/pagina=2">2</a>
+        <a href="/pagina=3">3</a>
+        <a href="/pagina=4">4</a>
+        <a href="/pagina=5">5</a>
+        <a href="/pagina=6">6</a>
+        <a href="/pagina=7">7</a>
+        <a href="/pagina=8">8</a>
+        <a href="/pagina=9">9</a>
+        <a href="/pagina=10">10</a>
+    </section>
 
     <footer>
         <div id="footer2">
@@ -101,19 +128,19 @@
 
             <h1 id="titulo-sociais" class="footer-titulo">Midias Sociais</h1>
             <div id="footer2-icons">
-                <a target="_blank" rel=”noopener” href="https://github.com/devsamuca"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://github.com/devsamuca"><img class="footer2-icon"
                         src="/img/social/github.png" alt="Github"></a>
-                <a target="_blank" rel=”noopener” href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
                         src="/img/social/instagram.png" alt="Instagram"></a>
-                <a target="_blank" rel=”noopener” href="https://www.linkedin.com/in/devsamuel/"><img
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/devsamuel/"><img
                         class="footer2-icon" src="/img/social/linkedin.png" alt="Linkedin"></a>
-                <a target="_blank" rel=”noopener” href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
                         src="/img/social/youtube.png" alt="Youtube"></a>
-                <a target="_blank" rel=”noopener” href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
+                <a target="_blank" rel="noopener" href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
                         class="footer2-icon" src="/img/social/spotify.png" alt="Spotify"></a>
-                <a target="_blank" rel=”noopener” href="https://x.com/samucaioo"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://x.com/samucaioo"><img class="footer2-icon"
                         src="/img/social/x.png" alt="X"></a>
-                <a target="_blank" rel=”noopener” href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
+                <a target="_blank" rel="noopener" href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
                         src="/img/social/discordi.png" alt="Discord"></a>
             </div>
 
@@ -122,10 +149,10 @@
             <div class="footer1-element" id="footer-linguagem">
                 <h1 class="footer-titulo">Tecnologias</h1>
                 <div class="footer1-itens">
-                    <a class="footer1-link" href="https://www.w3schools.com/nodejs/default.asp">Node</a>
-                    <a class="footer1-link" href="https://www.w3schools.com/html/default.asp">Html</a>
-                    <a class="footer1-link" href="https://www.w3schools.com/css/default.asp">Css</a>
-                    <a class="footer1-link" href="https://www.w3schools.com/js/default.asp">Java Script</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/nodejs/default.asp"><img src="/img/icon/node.png" class="language" alt="">Node</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/html/default.asp"><img src="/img/icon/html.png" class="language" alt="">Html</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/css/default.asp"><img src="/img/icon/css.png" class="language" alt="">Css</a>
+                    <a class="footer1-link" href="https://www.w3schools.com/js/default.asp"><img src="/img/icon/js.png" class="language" alt="">Java Script</a>
                 </div>
             </div>
 
@@ -133,19 +160,19 @@
                 <h1 class="footer-titulo">Ferramentas</h1>
                 <div class="footer1-itens">
                     <a target="_blank" rel="noopener" class="footer1-link"
-                        href="https://vscode.dev/?vscode-lang=pt-br">VsCode</a>
-                    <a target="_blank" rel="noopener" class="footer1-link" href="https://git-scm.com/">Git</a>
+                        href="https://vscode.dev/?vscode-lang=pt-br"><img src="/img/icon/vscode.png" class="language" alt="">VsCode</a>
+                    <a target="_blank" rel="noopener" class="footer1-link" href="https://git-scm.com/"><img src="/img/icon/git.png" class="language" alt="">Git</a>
                     <a target="_blank" rel="noopener" class="footer1-link"
-                        href="https://www.flaticon.com/br/?k=1719151636320&log-in=google">Flaticon</a>
+                        href="https://www.flaticon.com/br/?k=1719151636320&log-in=google"><img src="/img/icon/node.png" class="language" alt="">Flaticon</a>
                     <a target="_blank" rel="noopener" class="footer1-link"
-                        href="https://fontawesome.com/">Fontawesome</a>
+                        href="https://fontawesome.com/"><img src="/img/icon/fontawesome.png" class="language" alt="">Fontawesome</a>
                 </div>
             </div>
 
             <div class="footer1-element" id="footer-api">
                 <h1 class="footer-titulo">Api</h1>
                 <div class="footer1-itens">
-                    <a class="footer1-link" href="https://developer.themoviedb.org/reference/discover-movie">The Movie
+                    <a class="footer1-link" href="https://developer.themoviedb.org/reference/discover-movie"><img src="/img/icon/tmdb.png" class="language" alt="">The Movie
                         DataBase</a>
                     <p class="opacity">.</p>
                     <p class="opacity">.</p>
@@ -154,11 +181,11 @@
             </div>
         </div>
         <div id="footer3">
-            <p id="copyright" class="footer-titulo">©Copyright 2024. Desenvolvido por Samuel Souza.</p>
+            <p id="copyright" class="footer-titulo">©Copyright 2024. Desenvolvido por Samuel Souza.&#127801;</p>
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/f59b0f7f02.js" crossorigin="anonymous"></script>
-    <script src="js/js.js"></script>
+    <script src="/js/js.js"></script>
 </body>
 
 </html>

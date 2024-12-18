@@ -116,6 +116,11 @@ p {
     }
 }
 
+.language {
+    max-height: 1em;
+    margin-right: 0.3em;
+}
+
 #item4selecionar {
     margin: 14em 0;
     color: #000000;
@@ -144,6 +149,23 @@ p {
     }
 }
 
+#assistir {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3em;
+}
+
+.assistir {
+    max-height: 4em;
+    border-radius: 1em;
+    margin: 0 1em;
+    transition: transform 0.2s ease-in;
+}
+
+.assistir:hover {
+    transform: translateY(-10px);
+}
 
 #logo {
     max-height: 3em;
@@ -189,6 +211,110 @@ main {
     grid-template-columns: 25% 25% 25% 25%;
 }
 
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 50vh;
+}
+
+#maininfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-main {
+    margin: 2em 0;
+    text-align: center;
+}
+
+#erro404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#deadpool {
+    margin: 0 1em;
+    max-height: 15em;
+    color: #ff0000;
+}
+
+#link-voltar {
+    text-decoration: none;
+    padding: 1.4em;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 0.5em;
+    transition: transform 0.2s ease-in;
+    margin: 2em 0;
+}
+
+#poster-filmeserie {
+    margin-right: 2em;
+}
+
+#poster-img {
+    max-height: 33em;
+    padding: 0.2em;
+    border-radius: 1em;
+    transition: transform 0.2s ease-in;
+}
+
+#poster-img:hover {
+    transform: scale(1.1);
+}
+
+#main-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 60vw;
+}
+
+#sobre-filmeserie {
+    max-width: 30vw;
+}
+
+#sobre-filmeserie h1 {
+    font-size: 4em;
+    text-align: left;
+
+}
+
+#sobre-filmeserie p {
+    margin: 3em 0;
+    text-align: left;
+
+}
+
+#link-voltar:hover {
+    background-color: #c70000;
+    transform: scale(1.1);
+}
+
+#paginas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+#paginas a {
+    text-decoration: none;
+    margin: 1em;
+    color: #c70000;
+    transition: transform ease-in 0.2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
 .filmes {
     display: flex;
     justify-content: center;
@@ -199,6 +325,7 @@ main {
 
 .img-filmes {
     max-width: 100%;
+    border-radius: 1em;
     transition: filter 0.2s ease-in, transform 0.2s ease-in, opacity 0.2s ease-in;
     display: flex;
 }
@@ -240,10 +367,11 @@ main {
     opacity: 1;
     border: 1px solid #ffffff;
     background-color: #00000059;
+    border-radius: 1em;
 }
 
 .info-filme p {
-    font-size: 0.8em;
+    font-size: 1.2em;
     margin: 5px 0;
 }
 
@@ -292,6 +420,8 @@ footer {
 }
 
 .footer1-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #ffffff;
     margin: 0.3em;
@@ -364,7 +494,7 @@ footer {
 
     main {
         display: grid;
-        grid-template-columns: 33% 33% 33%;
+        grid-template-columns: 25% 25% 25% 25%;
     }
 
     .link-info-filme {
@@ -373,6 +503,31 @@ footer {
         align-items: center;
         justify-content: center;
         flex-direction: column;
+    }
+
+    #assistir {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .assistir {
+        max-height: 3em;
+        border-radius: 0.3em;
+        margin: 0 1em;
+        transition: transform 0.2s ease-in;
+    }
+
+    #main-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        min-width: 100vw;
+    }
+
+    #poster-filmeserie {
+        margin-right: 0;
     }
 
     .link-info:hover .img-filmes {
@@ -414,12 +569,33 @@ footer {
         }
     }
 
+    #sobre-filmeserie h1 {
+        font-size: 3em;
+        text-align: center;
+    }
+
+    #sobre-filmeserie p {
+        margin: 3em 0;
+        text-align: center;
+    }
+
+
+    #sobre-filmeserie {
+        max-width: 90vw;
+    }
+
     .footer1-element {
         margin: 1em;
     }
 
     #footer-logo {
         max-height: 2em;
+    }
+
+
+    #poster-img {
+        max-height: 20em;
+        padding: 0.2em;
     }
 
     #footer2 {
