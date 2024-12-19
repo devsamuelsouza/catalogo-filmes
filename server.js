@@ -56,15 +56,17 @@ generos.forEach(genero => {
     idsGeneros.set(genero.id, genero.name);
 });
 //_________________________________________________________
+
 // Rotas
 
 //Home_________________________________________________________
 server.get('/', async (request, response) => {
 
+    const numPaginaRandom = Math.random() * 500
+
     const filmesSeries = []
-    const randomPage = Math.random() * 300
-    const urlFilmes = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${randomPage}`
-    const urlSeries = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${randomPage}`
+    const urlFilmes = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+    const urlSeries = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
 
     const reply = await fetch(urlFilmes)
     const reply2 = await fetch(urlSeries)
@@ -82,11 +84,9 @@ server.get('/', async (request, response) => {
 
 // Paginas_________________________________________________________
 server.get('/pagina=:numPagina', async (request, response) => {
-    const numPagina = request.params.numPagina
     const numPaginaRandom = Math.random() * 500
 
     const filmesSeries = []
-
     const urlFilmes = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
     const urlSeries = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
 
@@ -122,8 +122,106 @@ server.get('/sobre', (request, response) => {
     response.render('sobre')
 })
 // _________________________________________________________
+
+// Filmes_________________________________________________________
+server.get('/filmes', async (request, response) => {
+
+    const numPaginaRandom = Math.random() * 500
+
+    let allFilmes = []
+
+    const urlFilmes = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+    const urlFilmes2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+
+    const reply = await fetch(urlFilmes)
+    const reply2 = await fetch(urlFilmes2)
+
+    const data = await reply.json()
+    const data2 = await reply2.json()
+
+    allFilmes.push(...data.results)
+    allFilmes.push(...data2.results)
+    let parametro = 'movie'
+
+    response.render('filmes', { allFilmes, idsGeneros, parametro })
+})
+// _________________________________________________________
+
+// Series_________________________________________________________
+server.get('/series', async (request, response) => {
+
+    const numPaginaRandom = Math.random() * 500
+
+    let allSeries = []
+
+    const urlSeries = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+    const urlSeries2 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&page=${numPaginaRandom}`
+
+    const reply = await fetch(urlSeries)
+    const reply2 = await fetch(urlSeries2)
+
+    const data = await reply.json()
+    const data2 = await reply2.json()
+
+    allSeries.push(...data.results)
+    allSeries.push(...data2.results)
+    let parametro = 'tv'
+
+    response.render('series', { allSeries, idsGeneros, parametro })
+})
+// _________________________________________________________
+
+// Populares_________________________________________________________
+server.get('/populares', async (request, response) => {
+
+    const numPaginaRandom = Math.random() * 500
+
+    let allPopular = []
+
+    const urlPopular = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&vote_average.gte=>8&page=${numPaginaRandom}`
+    const urlPopular2 = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&vote_average.gte=>8&page=${numPaginaRandom}`
+
+    const reply = await fetch(urlPopular)
+    const reply2 = await fetch(urlPopular2)
+
+    const data = await reply.json()
+    const data2 = await reply2.json()
+
+    allPopular.push(...data.results)
+    allPopular.push(...data2.results)
+
+    response.render('populares', { allPopular, idsGeneros })
+})
+// _________________________________________________________
+
+// Lançamentos_________________________________________________________
+server.get('/lancamentos', async (request, response) => {
+
+    const numPaginaRandom = Math.random() * 500
+
+    const allLancamentos = []
+
+    const Ano = Number(new Date().getFullYear())
+
+    const urlLancamentoFilme = `https://api.themoviedb.org/3/discover/movie?api_key=${apikey}&language=pt-BR&primary_release_year=${Ano}&page=${numPaginaRandom}`
+    const urlLancamentoSerie = `https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&language=pt-BR&first_air_date_year=${Ano}&page=${numPaginaRandom}`
+
+    const reply = await fetch(urlLancamentoFilme)
+    const reply2 = await fetch(urlLancamentoSerie)
+
+    const data = await reply.json()
+    const data2 = await reply2.json()
+
+    allLancamentos.push(...data.results)
+    allLancamentos.push(...data2.results)
+
+
+    response.render('lancamentos', { allLancamentos, idsGeneros, Ano })
+})
+//_________________________________________________________ 
+
 // Rota de Erro
-server.use((request, response, next) => {
+server.use((request, response) => {
     response.status(404).render('erro')
 })
 // _________________________________________________________

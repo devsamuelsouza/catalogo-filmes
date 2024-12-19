@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Samuca Cine - Populares</title>
+</head>
+
+<body>
+    <header>
+        <div id="header-1">
+            <div class="header-item" id="seleciona-tipo">
+                <i id="menu" class="fa-solid fa-bars fa-2xl" style="color: #ffffff;"></i>
+                <div id="itens-selecionar">
+                    <a id="item1selecionar" class="texto-selecionar" href="/sobre">Sobre</a>
+                    <a id="item2selecionar" class="texto-selecionar" href="/filmes">Filmes</a>
+                    <a id="item3selecionar" class="texto-selecionar" href="/series">Séries</a>
+                    <a id="item4selecionar" class="texto-selecionar" href="/populares">Populares</a>
+                    <a id="item5selecionar" class="texto-selecionar" href="/lancamentos">Lançamentos</a>
+                </div>
+            </div>
+
+            <a href="/"><img class="header-item" id="logo" src="/img/logo.png" alt="Samuca Cine"></a>
+
+            <div class="header-item" id="links-header">
+                <a class="texto-header" href="/sobre">Sobre</a>
+                <a class="texto-header" href="/filmes">Filmes</a>
+                <a class="texto-header" href="/series">Séries</a>
+                <a class="texto-header" href="/populares">Populares</a>
+                <a class="texto-header" href="/lancamentos">Lançamentos</a>
+            </div>
+
+            <div class="header-item" id="social-header">
+                <a target="_blank" rel="noopener" class="social-header" href="https://www.instagram.com/samuca.io/"><img
+                        class="social-img" src="/img/social/instagram.png" alt="Instagram"></a>
+                <a target="_blank" rel="noopener" class="social-header"
+                    href="https://www.linkedin.com/in/devsamuel/overlay/about-this-profile/"><img class="social-img"
+                        src="/img/social/linkedin.png" alt="Linkedin"></a>
+                <a target="_blank" rel="noopener" class="social-header" href="https://github.com/devsamuca"><img
+                        class="social-img" src="/img/social/github.png" alt="Github"></a>
+            </div>
+
+        </div>
+
+        <div id="header-2">
+            <h1>Filmes e Séries Lançados em <%= Ano %></h1>
+            <h1>Conheça meu catálogo de Filmes e Séries</h1>
+            <p>Arraste o cursor sobre o poster para mais informações. </p>
+        </div>
+    </header>
+    <section id="paginas">
+        <a href="/pagina=1">1</a>
+        <a href="/pagina=2">2</a>
+        <a href="/pagina=3">3</a>
+        <a href="/pagina=4">4</a>
+        <a href="/pagina=5">5</a>
+        <a href="/pagina=6">6</a>
+        <a href="/pagina=7">7</a>
+        <a href="/pagina=8">8</a>
+        <a href="/pagina=9">9</a>
+        <a href="/pagina=10">10</a>
+    </section>
+    <main>
+
+        <% for(let i=0; i < allLancamentos.length; i++) { %>
+
+            <div class="filmes">
+                <% let parametro; if (allLancamentos[i].title !=null) { parametro='movie' ; } else { parametro='tv' ; } %>
+
+                    <section class="link-info-filme">
+
+                        <a class="link-info" href="/<%= parametro %>/<%= allLancamentos[i].id %>">
+                            <img class="img-filmes"
+                                src="https://image.tmdb.org/t/p/w500/<%= allLancamentos[i].poster_path %>"
+                                alt="<%= allLancamentos[i].title %> <%= allLancamentos[i].name %>">
+
+                            <div class="info-filme">
+                                <p>
+                                    <%= allLancamentos[i].title %>
+                                    <%= allLancamentos[i].name %>
+                                </p>
+                                <p>
+
+                                    <%= allLancamentos[i].release_date %>
+                                    <%= allLancamentos[i].first_air_date %>
+
+                                </p>
+                                <p>
+                                    <% let alLancamentos=[]; for(let j=0; j < allLancamentos[i].genre_ids.length; j++){
+                                        alLancamentos.push(idsGeneros.get(allLancamentos[i].genre_ids[j])) } %>
+                                        <%= alLancamentos.join(' - ') %>
+                                </p>
+                            </div>
+                        </a>
+
+                </section>
+                <p class="nome-filme">
+                        <%= allLancamentos[i].title %>
+                        <%= allLancamentos[i].name %>
+                </p>
+            </div>
+            <% } %>
+
+    </main>
+
+    <section id="paginas">
+        <a href="/pagina=1">1</a>
+        <a href="/pagina=2">2</a>
+        <a href="/pagina=3">3</a>
+        <a href="/pagina=4">4</a>
+        <a href="/pagina=5">5</a>
+        <a href="/pagina=6">6</a>
+        <a href="/pagina=7">7</a>
+        <a href="/pagina=8">8</a>
+        <a href="/pagina=9">9</a>
+        <a href="/pagina=10">10</a>
+    </section>
+
+    <footer>
+        <div id="footer2"></div>
+
+            <div id="footer2-icons">
+                <a target="_blank" rel="noopener" href="https://github.com/devsamuca"><img class="footer2-icon"
+                        src="/img/social/github.png" alt="Github"></a>
+                <a target="_blank" rel="noopener" href="https://www.instagram.com/samuca.io"><img class="footer2-icon"
+                        src="/img/social/instagram.png" alt="Instagram"></a>
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/devsamuel/"><img
+                        class="footer2-icon" src="/img/social/linkedin.png" alt="Linkedin"></a>
+                <a target="_blank" rel="noopener" href="https://www.youtube.com/@iosamuca"><img class="footer2-icon"
+                        src="/img/social/youtube.png" alt="Youtube"></a>
+                <a target="_blank" rel="noopener" href="https://open.spotify.com/user/31vw57cbppfuqfi2mgy3fjgr53eu"><img
+                        class="footer2-icon" src="/img/social/spotify.png" alt="Spotify"></a>
+                <a target="_blank" rel="noopener" href="https://x.com/samucaioo"><img class="footer2-icon"
+                        src="/img/social/x.png" alt="X"></a>
+                <a target="_blank" rel="noopener" href="https://discord.gg/jETY8m2n6g"><img class="footer2-icon"
+                        src="/img/social/discordi.png" alt="Discord"></a>
+            </div>
+
+        </div>
+        <div id="footer3">
+            <p id="copyright" class="footer-titulo">©Copyright 2024. Desenvolvido por Samuel Souza. &#127801</p>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/f59b0f7f02.js" crossorigin="anonymous"></script>
+    <script src="/js/js.js"></script>
+</body>
+
+</html>
