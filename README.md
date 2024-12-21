@@ -95,7 +95,7 @@ Consulte as [tags neste repositório](https://github.com/devsamuca/catalogo-film
 ---
 
 ## **📡 Online**  
-Veja a aplicação no ar clicando [aqui](https://github.com/devsamuca/catalogo-filmes/tags).  
+Veja a aplicação no ar clicando [aqui](https://catalogo-filmes-h82u.onrender.com).  
 
 ---
 
