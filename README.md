@@ -94,6 +94,11 @@ Consulte as [tags neste repositório](https://github.com/devsamuca/catalogo-film
 
 ---
 
+## **📡 Online**  
+Veja a aplicação no ar clicando [aqui](https://github.com/devsamuca/catalogo-filmes/tags).  
+
+---
+
 ## **✒️ Autor**  
 Desenvolvido por **Samuel Souza** 🌹  
 - [GitHub](https://github.com/devsamuca)  
