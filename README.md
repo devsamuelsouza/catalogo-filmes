@@ -77,15 +77,17 @@ Verifique o funcionamento do sistema realizando os seguintes testes:
 
 ---
 
-## **🛠️ Tecnologias Utilizadas**  
-Este projeto foi desenvolvido utilizando as seguintes tecnologias:  
+## **🛠️ Tecnologias e Ferramentas Utilizadas**  
+Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:  
 
-- **[EJS](https://ejs.co/):** Para renderizar os templates das páginas.  
-- **[CSS](https://www.w3schools.com/css/):** Para estilização do front-end.  
-- **[JavaScript](https://www.w3schools.com/js/):** Para funcionalidades e lógica.  
-- **[Git](https://git-scm.com/):** Para controle de versão.  
-- **[Visual Studio Code](https://code.visualstudio.com/):** Editor de código.  
-- **[Node.js](https://nodejs.org/):** Para construção do back-end.  
+![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+
 
 ---
 

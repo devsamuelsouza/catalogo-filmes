@@ -13,12 +13,3 @@ botao.addEventListener('click', () => {
 lista.addEventListener('mouseleave', () => {
     lista.style.display = 'none'
 })
-
-
-
-
-
-
-
-
-
