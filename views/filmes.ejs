@@ -79,29 +79,16 @@
                             <img class="img-filmes"
                                 src="https://image.tmdb.org/t/p/w500/<%= allFilmes[i].poster_path %>"
                                 alt="<%= allFilmes[i].title %>">
-
-                            <div class="info-filme">
-                                <p>
-                                    <%= allFilmes[i].title %>
-                                </p>
-                                <p>
-                                    
-                                    <%= allFilmes[i].release_date %>
-                                        
-                                </p>
-                                <p>
-                                    <% let alFilmes=[];
-                                    for(let j=0; j < allFilmes[i].genre_ids.length; j++){
-                                        alFilmes.push(idsGeneros.get(allFilmes[i].genre_ids[j]))
-                                    } %>
-                                            <%= alFilmes.join(' - ') %>
-                                </p>
                             </div>
                         </a>
 
                 </section>
                 <p class="nome-filme">
                         <%= allFilmes[i].title %>
+                </p>
+                <p class="data-filme">
+                    <%= allFilmes[i].release_date %>
+                        <%= allFilmes[i].first_air_date %>
                 </p>
             </div>
             <% } %>
