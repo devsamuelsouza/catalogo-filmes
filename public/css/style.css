@@ -289,11 +289,10 @@ main {
     max-height: 33em;
     padding: 0.2em;
     border-radius: 1em;
-    transition: transform 0.2s ease-in;
 }
 
 #poster-img:hover {
-    transform: scale(1.1);
+    cursor: pointer;
 }
 
 #main-info {
@@ -359,8 +358,7 @@ main {
 }
 
 .img-filmes:hover{
-    transform: scale(1.05);
-    border: 2px solid #ffffff;
+    transform: translateY(-0.5em);
 }
 
 .link-info-filme {
