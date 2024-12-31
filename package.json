@@ -8,6 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "node server.js"
   }
 }
