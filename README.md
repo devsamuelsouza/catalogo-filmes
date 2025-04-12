@@ -3,6 +3,20 @@ Um catálogo de filmes completo e intuitivo para os amantes de cinema!
 
 ---
 
+<table>
+  <tr>
+    <td align="left">
+      <a href="https://catalogo-filmes-tkxg.onrender.com/">
+        <img src="./public/img/thumb.png" width="400px;" align/><br>
+        <sub>
+        <b>Cotação de Criptomoedas!</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
 ## **Índice**  
 - [Pré-requisitos](#pré-requisitos)  
 - [Instalação](#instalação)  
@@ -93,11 +107,6 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 
 ## **📌 Versão**  
 Consulte as [tags neste repositório](https://github.com/devsamuca/catalogo-filmes/tags) para visualizar as versões do projeto.  
-
----
-
-## **📡 Online**  
-Veja a aplicação no ar clicando [aqui](https://catalogo-filmes-tkxg.onrender.com).  
 
 ---
 
