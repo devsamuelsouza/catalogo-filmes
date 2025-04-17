@@ -9,7 +9,7 @@ Um catálogo de filmes completo e intuitivo para os amantes de cinema!
       <a href="https://catalogo-filmes-tkxg.onrender.com/">
         <img src="./public/img/thumb.png" width="400px;" align/><br>
         <sub>
-        <b>Cotação de Criptomoedas!</b>
+        <b>Catalogo de Filmes! </b>
         </sub>
       </a>
     </td>
